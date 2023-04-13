@@ -5,6 +5,7 @@ namespace App\Controller;
 use App\Entity\Todo;
 use App\Form\TodoType;
 use App\Repository\TodoRepository;
+use DateTime;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
@@ -25,6 +26,8 @@ class TodoController extends AbstractController
     public function new(Request $request, TodoRepository $todoRepository): Response
     {
         $todo = new Todo();
+        $now = new DateTime("now");
+        $todo->setCreateDate($now);
         $form = $this->createForm(TodoType::class, $todo);
         $form->handleRequest($request);
 

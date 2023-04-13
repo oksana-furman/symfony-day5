@@ -3,6 +3,8 @@
 {% block title %}Todo index{% endblock %}
 
 {% block body %}
+<a href="/logout" class="btn btn-secondary">Log out</a>
+<a href="/admin/users/" class="btn btn-secondary">Manage users</a>
     <h1>Todo index</h1>
 
     <table class="table">
@@ -13,9 +15,9 @@
                 <th>Category</th>
                 <th>Description</th>
                 <th>Priority</th>
-                <th>Due_date</th>
-                <th>Create_date</th>
-                <th>actions</th>
+                <th>Due date</th>
+                {# <th>Create_date</th> #}
+                <th>Actions</th>
             </tr>
         </thead>
         <tbody>
@@ -27,19 +29,19 @@
                 <td>{{ todo.description }}</td>
                 <td>{{ todo.priority }}</td>
                 <td>{{ todo.dueDate ? todo.dueDate|date('Y-m-d H:i:s') : '' }}</td>
-                <td>{{ todo.createDate ? todo.createDate|date('Y-m-d H:i:s') : '' }}</td>
+                {# <td>{{ todo.createDate ? todo.createDate|date('Y-m-d H:i:s') : '' }}</td> #}
                 <td>
-                    <a href="{{ path('app_todo_show', {'id': todo.id}) }}">show</a>
-                    <a href="{{ path('app_todo_edit', {'id': todo.id}) }}">edit</a>
+                    <a href="{{ path('app_todo_show', {'id': todo.id}) }}" class="btn btn-success m-1">Show</a>
+                    <a href="{{ path('app_todo_edit', {'id': todo.id}) }}" class="btn btn-warning m-1">Edit</a>
                 </td>
             </tr>
         {% else %}
             <tr>
-                <td colspan="8">no records found</td>
+                <td colspan="8" class="text-center">no records found</td>
             </tr>
         {% endfor %}
         </tbody>
     </table>
 
-    <a href="{{ path('app_todo_new') }}">Create new</a>
+    {# <a href="{{ path('app_todo_new') }}">Create new</a> #}
 {% endblock %}

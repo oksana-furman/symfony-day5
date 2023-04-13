@@ -28,19 +28,19 @@
                 <td>{{ todo.priority }}</td>
             </tr>
             <tr>
-                <th>Due_date</th>
+                <th>Due date</th>
                 <td>{{ todo.dueDate ? todo.dueDate|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
             <tr>
-                <th>Create_date</th>
+                <th>Created</th>
                 <td>{{ todo.createDate ? todo.createDate|date('Y-m-d H:i:s') : '' }}</td>
             </tr>
         </tbody>
     </table>
 
-    <a href="{{ path('app_todo_index') }}">back to list</a>
+    {# <a href="{{ path('app_todo_index') }}">back to list</a> #}
 
-    <a href="{{ path('app_todo_edit', {'id': todo.id}) }}">edit</a>
+    <a href="{{ path('app_todo_edit', {'id': todo.id}) }}" class="btn btn-warning m-1">Edit</a>
 
     {{ include('todo/_delete_form.html.twig') }}
 {% endblock %}

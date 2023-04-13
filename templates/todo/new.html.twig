@@ -3,9 +3,9 @@
 {% block title %}New Todo{% endblock %}
 
 {% block body %}
-    <h1>Create new Todo</h1>
+    <h1 class="text-center">Create new Task</h1>
 
     {{ include('todo/_form.html.twig') }}
 
-    <a href="{{ path('app_todo_index') }}">back to list</a>
+    {# <a href="{{ path('app_todo_index') }}">back to list</a> #}
 {% endblock %}
